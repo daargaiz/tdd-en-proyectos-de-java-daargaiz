@@ -1,38 +1,67 @@
 package com.tt1.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBStub {
+    private final List<ToDo> toDos;
+    private final List<String> emails;
 
     public DBStub() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        this.toDos = new ArrayList<>();
+        this.emails = new ArrayList<>();
     }
 
     public void crearToDo(ToDo toDo) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        if (toDo == null) {
+            throw new IllegalArgumentException("El ToDo no puede ser nulo");
+        }
+        if (obtenerToDoPorNombre(toDo.getNombre()) != null) {
+            throw new IllegalArgumentException("Ya existe una tarea con ese nombre");
+        }
+        toDos.add(toDo);
     }
 
     public ToDo obtenerToDoPorNombre(String nombre) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        for (ToDo toDo : toDos) {
+            if (toDo.getNombre().equals(nombre)) {
+                return toDo;
+            }
+        }
+        return null;
     }
 
     public List<ToDo> obtenerTodosLosToDos() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return new ArrayList<>(toDos);
     }
 
     public void actualizarToDo(ToDo toDo) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        if (toDo == null) {
+            throw new IllegalArgumentException("El ToDo no puede ser nulo");
+        }
+        for (int i = 0; i < toDos.size(); i++) {
+            if (toDos.get(i).getNombre().equals(toDo.getNombre())) {
+                toDos.set(i, toDo);
+                return;
+            }
+        }
+        throw new IllegalArgumentException("No existe la tarea a actualizar");
     }
 
     public void eliminarToDo(String nombre) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        toDos.removeIf(toDo -> toDo.getNombre().equals(nombre));
     }
 
     public void guardarEmail(String email) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("El email no puede estar vacío");
+        }
+        if (!emails.contains(email)) {
+            emails.add(email);
+        }
     }
 
     public List<String> obtenerEmails() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return new ArrayList<>(emails);
     }
 }

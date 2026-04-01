@@ -21,34 +21,27 @@ class ToDoTest {
     }
 
     @Test
-    void getNombre() {
+    void constructorYGettersFuncionan() {
+        ToDo todo = new ToDo("Tarea1", "Descripcion", 123L, false);
+
+        assertEquals("Tarea1", todo.getNombre());
+        assertEquals("Descripcion", todo.getDescripcion());
+        assertEquals(123L, todo.getFechaLimite());
+        assertFalse(todo.isCompletado());
     }
 
     @Test
-    void setNombre() {
-    }
+    void settersActualizanValores() {
+        ToDo todo = new ToDo();
 
-    @Test
-    void getDescripcion() {
-    }
+        todo.setNombre("NuevaTarea");
+        todo.setDescripcion("NuevaDescripcion");
+        todo.setFechaLimite(999L);
+        todo.setCompletado(true);
 
-    @Test
-    void setDescripcion() {
-    }
-
-    @Test
-    void getFechaLimite() {
-    }
-
-    @Test
-    void setFechaLimite() {
-    }
-
-    @Test
-    void isCompletado() {
-    }
-
-    @Test
-    void setCompletado() {
+        assertEquals("NuevaTarea", todo.getNombre());
+        assertEquals("NuevaDescripcion", todo.getDescripcion());
+        assertEquals(999L, todo.getFechaLimite());
+        assertTrue(todo.isCompletado());
     }
 }

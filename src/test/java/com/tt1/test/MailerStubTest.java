@@ -24,6 +24,13 @@ class MailerStubTest {
     }
 
     @Test
-    void enviarCorreo() {
+    void enviarCorreoDevuelveTrueYLoRegistra() {
+        MailerStub mailer = new MailerStub();
+
+        boolean enviado = mailer.enviarCorreo("prueba@test.com", "hola");
+
+        assertTrue(enviado);
+        assertEquals(1, mailer.getCorreosEnviados().size());
+        assertTrue(mailer.getCorreosEnviados().getFirst().contains("prueba@test.com"));
     }
 }

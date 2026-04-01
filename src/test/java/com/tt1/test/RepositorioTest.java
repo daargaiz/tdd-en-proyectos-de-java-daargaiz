@@ -24,18 +24,34 @@ class RepositorioTest {
     }
 
     @Test
-    void encontrarToDo() {
+    void guardaYEncuentraToDo() {
+        DBStub db = new DBStub();
+        Repositorio repositorio = new Repositorio(db);
+        ToDo todo = new ToDo("Tarea1", "Desc", 123L, false);
+
+        repositorio.guardarToDo(todo);
+
+        assertEquals(todo, repositorio.encontrarToDo("Tarea1"));
     }
 
     @Test
-    void marcarComoCompletado() {
+    void marcaComoCompletadoUnaTarea() {
+        DBStub db = new DBStub();
+        Repositorio repositorio = new Repositorio(db);
+        repositorio.guardarToDo(new ToDo("Tarea1", "Desc", 123L, false));
+
+        repositorio.marcarComoCompletado("Tarea1");
+
+        assertTrue(repositorio.encontrarToDo("Tarea1").isCompletado());
     }
 
     @Test
-    void guardarToDo() {
-    }
+    void guardaEmailEnLaBaseDeDatos() {
+        DBStub db = new DBStub();
+        Repositorio repositorio = new Repositorio(db);
 
-    @Test
-    void guardarEmail() {
+        repositorio.guardarEmail("correo@test.com");
+
+        assertEquals(1, repositorio.obtenerEmails().size());
     }
 }
