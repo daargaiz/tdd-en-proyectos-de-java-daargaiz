@@ -7,13 +7,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RepositorioTest {
-    @Test
+    /*@Test
     void RepositorioTestEjercicio() {
         DBStub db = new DBStub();
         Repositorio repositorio = new Repositorio(db);
 
         assertThrows(UnsupportedOperationException.class, () -> repositorio.encontrarToDo("Tarea1"));
     }
+
+     */
 
     @BeforeEach
     void setUp() {

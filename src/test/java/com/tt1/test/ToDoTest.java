@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ToDoTest {
-    @Test
+    /*@Test
     void toDoTestEjercicio() {
         ToDo todo = new ToDo();
         assertThrows(UnsupportedOperationException.class, todo::getNombre);
     }
+    */
+
     @BeforeEach
     void setUp() {
     }

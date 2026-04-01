@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class DBStubTest {
-    @Test
+    /*@Test
     void DBStubTestEjercicio() {
         DBStub db = new DBStub();
         ToDo todo = new ToDo();
         assertThrows(UnsupportedOperationException.class, () -> db.crearToDo(todo));
     }
+
+     */
     @Test
     void creaYRecuperaToDos() {
         DBStub db = new DBStub();

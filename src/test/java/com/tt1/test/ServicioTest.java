@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ServicioTest {
 
-    @Test
+    /*@Test
     void ServicioTestEjercicio() {
         DBStub db = new DBStub();
         Repositorio repositorio = new Repositorio(db);
@@ -19,6 +19,8 @@ class ServicioTest {
 
         assertThrows(UnsupportedOperationException.class, servicio::consultarToDosSinCompletar);
     }
+    
+     */
 
     @BeforeEach
     void setUp() {
